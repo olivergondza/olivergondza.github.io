@@ -7,7 +7,7 @@ title: All articles by tags
   {% assign t = tag | first %}
   {% assign posts = tag | last %}
 
-  **{{ t | downcase }}**
+  <h3>{{ t | downcase }}</h3>
   <ul>
     {% for post in posts %}
       {% if post.tags contains t %}
