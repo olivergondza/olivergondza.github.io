@@ -1,4 +1,3 @@
-
 # Site settings
 title: PoorlyWritten
 description: "On Java, Unix, Programming and Craftsmenship"
@@ -7,4 +6,8 @@ url: ""
 github_username:  olivergondza
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
+
+gems:
+  - jekyll-feed
+
