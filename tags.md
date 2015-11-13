@@ -1,6 +1,6 @@
 ---
 layout: main
-title: Posts by tags
+title: All articles by tags
 ---
 
 {% for tag in site.tags %}
