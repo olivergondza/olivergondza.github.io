@@ -1,6 +1,6 @@
 # Site settings
 title: PoorlyWritten
-description: "On Java, Unix, Programming and Craftsmenship"
+description: "On Java, Unix, Programming and Craftsmanship"
 baseurl: ""
 url: ""
 github_username:  olivergondza
@@ -10,4 +10,4 @@ markdown: redcarpet
 
 gems:
   - jekyll-feed
-
+  - jekyll-seo-tag
