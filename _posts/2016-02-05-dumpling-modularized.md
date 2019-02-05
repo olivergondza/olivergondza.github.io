@@ -42,8 +42,8 @@ See [Built-in Dumpling](https://olivergondza.github.io/dumpling/bundling.html) f
 
 #### How to migrate?
 
-The odds are the application depends on classes that was kept in the core module.
+The odds are your application depends on classes that ware kept in the core module.
 The core module will have the same artifactId as the Dumpling 1.0 so no change
-is needed. Clients that depend on groovy interoperability will need to use `dumpling-groovy-api`
-artifact. In case of dependency on what is now part of the CLI module, it still
-can be possible to declare it as dependency, though this use case is not unsupported.
+is needed. Clients that depend on groovy interoperability will need to add `dumpling-groovy-api`
+artifact. In case of dependency on classes that are now part of the CLI module, it still
+may be possible to consume it as a dependency, though this use case is now unsupported.
