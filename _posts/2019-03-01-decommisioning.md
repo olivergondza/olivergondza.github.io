@@ -28,9 +28,9 @@ Which bring us to the users. Environments are seldom so simple and well document
 the list of dependent parties is known and up-to-date when it is the time to kiss
 it goodbye. Figuring out who the stakeholders are can require quite some
 searching and asking around. In my experience, this part is most commonly underestimated
-causing crucial information to be reviled way too late ("But we depend on that!").
+causing crucial information to be revealed way too late ("But we depend on that!").
 This can get decommissioning project severely delayed or even aborted, or users
-disappointed when it does not - choose what's worse. Do yourself a favor, and
+disappointed when it continues - choose what's worse. Do yourself a favor, and
 identify dealbreakers as soon as you can.
 
 ## Say It Out Loud
@@ -73,7 +73,7 @@ Now just sit, wait, and listen carefully.
 
 ## Kill It
 
-At last, once noone objected (in a way we not be able to manage) to announcements
+At last, once noone objected (in a way we would not be able to manage) to announcements
 or breakage, we would have surely caused provided someone relayed on the service,
 we are as confident as we are ever going to get to kill the service.
 
@@ -85,7 +85,7 @@ confident to remove without disruption.
 
 The important thing to understand is, none of this is an exact science. One can
 always spend more time in any stage of the preparation. Despite the temptation to identify
-more users or uses of the service or just waiting more for the simulated
+more users or uses of the service or just spend more time waiting for the simulated
 breakage to manifest, it is up to us to find a sweet spot. After all, it is
 done to prevent things to hang around forever, and the same applies
 to decommissioning projects as well.
