@@ -35,8 +35,7 @@ $EXPR$.at -> org.hamcrest.MatcherAssert.assertThat($EXPR$, |);
 $EXPR$.ae -> org.junit.Assert.assertEquals(|, $EXPR$);
 ```
 
-As you can surely guess, IDEA will add the static import (presumably according to
-IDE preferences) and replaces the `$EXPR$` token with the expression being wrapped.
+As you can surely guess, IDEA will replace the `$EXPR$` token with the expression being wrapped.
 None of this is really a discovery except for the fact, the official [documentation](https://www.jetbrains.com/help/idea/settings-postfix-completion.html)
 does not mention how to declare desired caret position _after_ the template has been
 applied. If left unspecified, the caret is placed behind the resulting declaration which is
@@ -53,11 +52,46 @@ org.junit.Assert.assertEquals($END$, $EXPR$);
 So typing `actual.ae<TAB>expected` results into:
 
 ```
+Assert.assertEquals(expected, actual);
+```
+
+Another shortcoming I have come across is, there appears to be no way to configure
+the completions to automatically add the static method import so it would actually
+result in my preferred style:
+
+```
 import static org.junit.Assert.assertEquals;
+
+...
 
 assertEquals(expected, actual);
 ```
 
-Btw, there is a [plugin](https://plugins.jetbrains.com/plugin/9862-custom-postfix-templates)
-that adds more powers we know from live templates to custom postfix completions.
-Can't wait to give that a try!
+## Plugin to the rescue
+
+The good news are, there is a [Custom Postfix Templates plugin](https://plugins.jetbrains.com/plugin/9862-custom-postfix-templates)
+that offers lot more:
+
+- Plenty of predefined completions that are sorted into groups so one can
+decide which to use and which to ignore. Not using Mockito? Not a problem, its
+completions can be hidden easily.
+- Custom completions are declared in a text format and fed in as a local file or URL.
+The completions can be shared with the team and versioned. This is exactly how
+predefined completions are declared and distributed so they can be customized and studied.
+- And of course, the expressions are more powerful.
+
+With no intention to transcribe the [project documentation](https://github.com/xylo/intellij-postfix-templates#kinds-of-template-files), here is how our completions evolved:
+
+```
+.at : Hamcrest assertThat
+  NON_VOID → org.hamcrest.MatcherAssert.assertThat($expr$, $expected$); [USE_STATIC_IMPORTS]
+
+.ae : JUnit assertEquals
+  NON_VOID → org.junit.Assert.assertEquals($expected$, $expr$); [USE_STATIC_IMPORTS]
+```
+
+The two completions, both with human readable description displayed in suggestion
+dropdown before use, are applicable in same context: `non-void` expression. With this plugin,
+in both cases, static method import is added and `$expected$` parameter is where the caret
+is placed after application. From here it is all similar to Live Templates in
+supporting multiple variables and the smart navigation while entering them.
